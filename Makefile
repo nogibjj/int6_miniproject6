@@ -26,9 +26,7 @@ transform_load:
 	python main.py transform_load
 
 query:
-	python main.py run_crud_operations, query_frequent_soda, query_heart_disease
+	python main.py query_nutrition
 
-deploy:
-	#deploy goes here
 		
-all: install lint test format deploy
+all: install lint test format
