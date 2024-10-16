@@ -4,7 +4,7 @@ ETL-Query script
 
 from mylib.extract import extract
 from mylib.transform_load import load
-from mylib.query import run_crud_operations, query_frequent_soda, query_heart_disease
+from mylib.query import query_nutrition
 
 # Extract
 print("Extracting data...")
@@ -14,11 +14,6 @@ extract()
 print("Transforming data...")
 load()
 
-# Query CRUD
-print("CRUD on data...")
-run_crud_operations()
-
 # Query
 print("Querying data...")
-query_frequent_soda()
-query_heart_disease()
+query_nutrition()
