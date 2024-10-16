@@ -16,13 +16,27 @@ jobs:
           python-version: 3.9
       - name: install packages
         run: make install
+      - name: format
+        run: make format
       - name: lint
         run: make lint
       - name: extract 
         run: make extract 
+        env:
+          DATABRICKS_KEY: ${{ secrets.DATABRICKS_KEY }}
+          SERVER_HOSTNAME: ${{ secrets.SERVER_HOSTNAME }}
+          HTTP_PATH: ${{ secrets.HTTP_PATH }}
       - name: transform_load
+        env:
+          DATABRICKS_KEY: ${{ secrets.DATABRICKS_KEY }}
+          SERVER_HOSTNAME: ${{ secrets.SERVER_HOSTNAME }}
+          HTTP_PATH: ${{ secrets.HTTP_PATH }}
         run: make transform_load 
       - name: query
+        env:
+          DATABRICKS_KEY: ${{ secrets.DATABRICKS_KEY }}
+          SERVER_HOSTNAME: ${{ secrets.SERVER_HOSTNAME }}
+          HTTP_PATH: ${{ secrets.HTTP_PATH }}
         run: make query
       - name: test
         env:
@@ -30,7 +44,5 @@ jobs:
           SERVER_HOSTNAME: ${{ secrets.SERVER_HOSTNAME }}
           HTTP_PATH: ${{ secrets.HTTP_PATH }}
         run: make test
-      - name: format
-        run: make format
       - name: deploy
         run: make deploy
