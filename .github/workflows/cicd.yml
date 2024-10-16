@@ -44,5 +44,3 @@ jobs:
           SERVER_HOSTNAME: ${{ secrets.SERVER_HOSTNAME }}
           HTTP_PATH: ${{ secrets.HTTP_PATH }}
         run: make test
-      - name: deploy
-        run: make deploy
